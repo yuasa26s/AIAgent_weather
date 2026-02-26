@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  # バックエンド (FastAPI)
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    environment:
+      - WATCHPACK_POLLING=true # Windowsでのホットリロード対策
+
