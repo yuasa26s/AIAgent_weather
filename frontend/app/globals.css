@@ -1,9 +1,21 @@
+/* frontend/app/globals.css */
+@import "tailwindcss";
+
 @theme {
-  --font-sans: var(--font-sans), sans-serif;
+  /* ここで「milky-blue」という色を定義します。V4はここを見ます！ */
+  --color-milky-blue: #bae6fd;
+  --color-soft-white: #eef4fa;
+  --color-sunny-yellow: #fef9c3;
+  --color-sakura-pink: #fce7f3;
+  --color-charcoal-gray: #798493;
+  --color-card-purple: #cea5fb;
+
+  /* フォントの設定 */
+  --font-sans: var(--font-mplus), "Inter", sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-milky-blue text-white font-sans;
+    @apply bg-milky-blue text-charcoal-gray font-sans;
   }
 }
