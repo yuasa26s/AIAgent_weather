@@ -3,6 +3,7 @@ import { useState } from "react";
 import WeatherCard from "../../components/weather/WeatherCard";
 import MessageBubble from "../../components/chat/MessageBubble";
 import ChatInput from "../../components/chat/ChatInput";
+import CloudBackground from "../../components/ui/CloudBackground";
 
 export default function ChatPage() {
   // メッセージのリストを記憶する（最初は空っぽ [] ）
@@ -23,6 +24,8 @@ export default function ChatPage() {
 
   return (
     <main className="min-h-screen bg-milky-blue p-4 flex flex-col items-center">
+      <CloudBackground />
+
       {/* 天気エリア */}
       <div className="w-full max-w-md flex justify-between items-center mt-6 mb-6 px-2">
         <WeatherCard />

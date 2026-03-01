@@ -19,3 +19,20 @@
     @apply bg-milky-blue text-charcoal-gray font-sans;
   }
 }
+
+@layer utilities {
+  /* 雲が横にスクロールするアニメーション */
+  @keyframes cloud-move {
+    0% {
+      transform: translateX(100vw);
+    } /* 画面の右端からスタート */
+    100% {
+      transform: translateX(-100%);
+    } /* 自分の幅分、左に消えるまで */
+  }
+
+  /* アニメーションを適用するクラス */
+  .animate-cloud {
+    animation: cloud-move linear infinite; /* 直線的に、無限に繰り返す */
+  }
+}
