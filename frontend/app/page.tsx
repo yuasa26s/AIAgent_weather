@@ -1,8 +1,8 @@
 // frontend/app/page.tsx
 "use client";
 
-import Link from "next/link";
 import CloudBackground from "../components/ui/CloudBackground";
+import LoginButton from "../components/ui/LoginButton";
 
 export default function Home() {
   return (
@@ -21,11 +21,7 @@ export default function Home() {
 
       {/*ボタン */}
       <div className="w-full flex justify-center z-10">
-        <Link href="/chat">
-          <button className="bg-sunny-yellow text-charcoal-gray text-xl px-12 py-4 rounded-full font-bold shadow-xl active:scale-90 transition-all hover:scale-105">
-            タップ
-          </button>
-        </Link>
+        <LoginButton />
       </div>
     </main>
   );

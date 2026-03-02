@@ -1,4 +1,4 @@
-// components/ui/CloudBackground.tsx
+//雲パーツをまとめたコンポーネント
 "use client";
 
 const Cloud = ({
