@@ -36,3 +36,7 @@
     animation: cloud-move linear infinite; /* 直線的に、無限に繰り返す */
   }
 }
+
+.blend-screen {
+  mix-blend-mode: screen;
+}

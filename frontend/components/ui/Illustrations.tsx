@@ -11,10 +11,7 @@ export default function Illustrations() {
           alt="雨の日のコーデ"
           width={250}
           height={250}
-          className="object-contain"
-          style={{
-            mixBlendMode: "screen",
-          }} // 黒背景対策
+          className="object-contain blend-screen"
         />
       </div>
 
@@ -25,11 +22,7 @@ export default function Illustrations() {
           alt="メインのコーデ"
           width={320}
           height={320}
-          priority
-          className="object-contain"
-          style={{
-            mixBlendMode: "screen",
-          }} // 黒背景対策
+          className="object-contain blend-screen"
         />
       </div>
 
@@ -40,7 +33,7 @@ export default function Illustrations() {
           alt="旅行のコーデ"
           width={250}
           height={250}
-          style={{ mixBlendMode: "screen" }} // 黒背景対策
+          className="object-contain blend-screen"
         />
       </div>
     </div>
