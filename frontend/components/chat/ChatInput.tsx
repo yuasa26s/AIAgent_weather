@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface ChatInputProps {
   onSendMessage: (text: string) => void;
+  disabled?: boolean;
 }
 
-export default function ChatInput({ onSendMessage }: ChatInputProps) {
+export default function ChatInput({ onSendMessage, disabled }: ChatInputProps) {
   const [inputText, setInputText] = useState("");
 
   const handleSend = () => {
@@ -21,11 +22,13 @@ export default function ChatInput({ onSendMessage }: ChatInputProps) {
         type="text"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)} // 文字を打つたびに記憶
+        disabled={disabled}
         placeholder="メッセージを入力..."
         className="flex-1 bg-transparent px-4 py-2 outline-none text-charcoal-gray font-bold"
       />
       <button
         onClick={handleSend}
+        disabled={disabled || !inputText.trim()}
         className="bg-sunny-yellow p-3 rounded-full shadow-md hover:scale-105 active:scale-95 transition-transform"
       >
         <span className="text-xl">✈️</span>
