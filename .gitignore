@@ -1,6 +1,4 @@
-# ======================
 # Node / Next.js
-# ======================
 node_modules/
 .next/
 out/
@@ -10,19 +8,20 @@ dist/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# ======================
 # Python / FastAPI
-# ======================
 __pycache__/
 *.py[cod]
+*.pyc
 *.pyo
 *.pyd
 *.so
 *.egg-info/
+.pytest_cache/
 dist/
 build/
 .eggs/
@@ -35,20 +34,14 @@ env/
 # Python env files
 .env
 
-# ======================
 # MySQL
-# ======================
 *.sql
 *.sqlite3
 
-# ======================
 # Logs
-# ======================
 *.log
 
-# ======================
 # OS / Editor
-# ======================
 .DS_Store
 Thumbs.db
 .vscode/
