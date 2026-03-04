@@ -1,8 +1,35 @@
-// URLの入口だけ。ルーティング
-"use client"
+// UUID取得
+"use client";
 
-import ChatContainer from "@/components/chat/ChatContainer"
+import { useChat } from "@/hooks/useChat";
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import ChatUI from "@/components/chat/ChatUI";
 
 export default function ChatPage() {
-  return <ChatContainer />
+  const searchParams = useSearchParams();
+  const userId = searchParams.get("userId") ?? ""; // nullを防ぐ
+
+  const { messages, sendMessage, loading, error } = useChat(userId);
+
+  //const [input, setInput] = useState("");
+
+  if (!userId) {
+    return <div>Invalid access. No userId found.</div>;
+  }
+
+  //   const handleSend = async () => {
+  //     if (!input.trim()) return;
+  //     await sendMessage(input);
+  //     setInput("");
+  //   };
+
+  return (
+    <ChatUI
+      messages={messages} // エンジンからもらったメッセージを渡す
+      onSendMessage={sendMessage} // エンジンの送信機能を渡す
+      loading={loading} // 通信中かどうかを渡す
+      error={error}
+    />
+  );
 }
