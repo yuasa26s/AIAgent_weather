@@ -6,3 +6,4 @@ sqlalchemy
 openai
 httpx
 pydantic
+tavily-python
