@@ -11,7 +11,7 @@ export default function ChatContainer() {
   const userId = searchParams.get("userId") ?? "";
 
   const { messages, sendMessage, loading, error } = useChat(userId);
-  
+
   if (!userId) {
     return <div>Invalid access. No userId found.</div>;
   }
