@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function Illustrations() {
   return (
-    <div className="flex-1 flex items-center justify-center gap-4 md:gap-12 z-10 mb-16 max-w-7xl w-full px-4">
+    <div className="flex-1 flex items-center justify-center gap-4 md:gap-12 z-10 mb-10 max-w-7xl w-full px-4">
       {/* 1枚目*/}
-      <div className="flex-1 flex justify-center transition-transform hover:scale-105">
+      {/* <div className="flex-1 flex justify-center transition-transform hover:scale-105">
         <Image
           src="/images/image_rain.png"
           alt="雨の日のコーデ"
@@ -13,21 +13,21 @@ export default function Illustrations() {
           height={250}
           className="object-contain blend-screen"
         />
-      </div>
+      </div> */}
 
       {/* 2枚目: 背中合わせの男女 (中央) */}
-      <div className="flex-1 flex justify-center transition-transform hover:scale-105">
+      <div className="flex-1 flex justify-center items-end pb-20 transition-transform hover:scale-105">
         <Image
           src="/images/image_1.png"
           alt="メインのコーデ"
-          width={320}
+          width={200}
           height={320}
           className="object-contain blend-screen"
         />
       </div>
 
       {/* 3枚目: キャリーバッグを引く男性 */}
-      <div className="flex-1 flex justify-center transition-transform hover:scale-105">
+      {/* <div className="flex-1 flex justify-center transition-transform hover:scale-105">
         <Image
           src="/images/image_travel.png"
           alt="旅行のコーデ"
@@ -35,7 +35,7 @@ export default function Illustrations() {
           height={250}
           className="object-contain blend-screen"
         />
-      </div>
+      </div> */}
     </div>
   );
 }
