@@ -1,26 +1,42 @@
+/* frontend/app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ここで「milky-blue」という色を定義します。V4はここを見ます！ */
+  --color-milky-blue: #bae6fd;
+  --color-soft-white: #eef4fa;
+  --color-sunny-yellow: #fef9c3;
+  --color-sakura-pink: #fce7f3;
+  --color-charcoal-gray: #798493;
+  --color-card-purple: #cea5fb;
+
+  /* フォントの設定 */
+  --font-sans: var(--font-mplus), "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-milky-blue text-charcoal-gray font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* 雲が横にスクロールするアニメーション */
+  @keyframes cloud-move {
+    0% {
+      transform: translateX(100vw);
+    } /* 画面の右端からスタート */
+    100% {
+      transform: translateX(-100%);
+    } /* 自分の幅分、左に消えるまで */
+  }
+
+  /* アニメーションを適用するクラス */
+  .animate-cloud {
+    animation: cloud-move linear infinite; /* 直線的に、無限に繰り返す */
+  }
+}
+
+.blend-screen {
+  mix-blend-mode: screen;
 }
