@@ -6,6 +6,7 @@ import MessageBubble from "./MessageBubble";
 import ChatInput from "./ChatInput";
 import CloudBackground from "../ui/CloudBackground";
 import { ChatMessage } from "@/types";
+import OutfitCard from "../weather/OutfitCard";
 
 type Props = {
   messages: ChatMessage[];
@@ -32,9 +33,16 @@ export default function ChatUI({
           </div>
 
           {/* コーデエリア */}
-          <div className="w-48 h-48 flex items-center justify-center bg-white/30 rounded-full border-4 border-white/20 shadow-xl backdrop-blur-md transition-all">
-            <span className="text-[100px] ">🏃‍♀️</span>
-          </div>
+          {false ? (
+            <div className="flex flex-col gap-4">
+              <WeatherCard />
+              <OutfitCard />
+            </div>
+          ) : (
+            <div className="w-48 h-48 flex items-center justify-center bg-white/30 rounded-full border-4 border-white/20 shadow-xl backdrop-blur-md transition-all">
+              <span className="text-[100px] ">🏃‍♀️</span>
+            </div>
+          )}
         </div>
       </div>
 

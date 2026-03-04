@@ -1,16 +1,32 @@
-// components/Weather/WeatherCard.tsx
-export default function WeatherCard() {
+// 1. どんなデータを受け取るか定義
+type WeatherProps = {
+  location?: string;
+  temp?: number;
+  condition?: string; // "☀️" や "☁️" など
+  lowTemp?: number;
+  highTemp?: number;
+};
+
+export default function WeatherCard({
+  location = "取得中...",
+  temp = 0,
+  condition = "❓",
+  lowTemp = 0,
+  highTemp = 0,
+}: WeatherProps) {
   return (
-    <div className="bg-card-purple/80 backdrop-blur-md p-4 rounded-[30px] shadow-lg border border-white/20 min-w-[140px]">
-      <p className="text-white text-sm font-bold opacity-90">東京の天気</p>
+    <div className="bg-white/30 backdrop-blur-md p-7 rounded-[20px] shadow-lg border border-white/20 min-w-[160px] ">
+      <p className="text-charcoal-gray text-sm font-bold opacity-90">
+        {location}の天気
+      </p>
       <div className="flex items-center gap-2">
-        <h2 className="text-4xl font-black text-white">15°</h2>
-        <span className="text-3xl">☀️</span>
+        <h2 className="text-4xl font-black text-charcoal-gray">{temp}°</h2>
+        <span className="text-4xl">{condition}</span>
       </div>
-      <div className="flex gap-2 text-xs font-bold mt-1">
-        <span className="text-blue-100">4°</span>
-        <span className="text-white/50">/</span>
-        <span className="text-red-100">16°</span>
+      <div className="flex gap-2 text-x font-bold mt-1">
+        <span className="text-blue-600">{lowTemp}°</span>
+        <span className="text-charcoal-gray">/</span>
+        <span className="text-red-600">{highTemp}°</span>
       </div>
     </div>
   );
