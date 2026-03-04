@@ -1,12 +1,13 @@
 "use client";
 
 import { useChat } from "@/hooks/useChat";
-import WeatherCard from "../weather/WeatherCard";
+// import WeatherCard from "../weather/WeatherCard";
 import MessageBubble from "./MessageBubble";
 import ChatInput from "./ChatInput";
 import CloudBackground from "../ui/CloudBackground";
 import { ChatMessage } from "@/types";
 import OutfitCard from "../weather/OutfitCard";
+import WeatherContainer from "@/components/weather/WeatherContainer";
 
 type Props = {
   messages: ChatMessage[];
@@ -29,7 +30,7 @@ export default function ChatUI({
       <div className="h-1/2 w-full flex flex-col items-center justify-center z-10 p-8">
         <div className="w-full max-w-md flex justify-between items-center">
           <div className="scale-125 origin-left">
-            <WeatherCard />
+            <WeatherContainer />
           </div>
 
           {/* コーデエリア */}
