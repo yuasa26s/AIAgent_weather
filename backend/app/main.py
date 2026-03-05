@@ -5,10 +5,14 @@ from fastapi import FastAPI
 from app.core.database import get_connection
 from app.api.v1.outfit import router as outfit_router
 from app.routers.rag import router as rag_router
+from app.api.v1.chat import router as chat_router
+
 
 app = FastAPI()
 # 追加（ルーター登録）
 app.include_router(rag_router)
+
+app.include_router(chat_router, prefix="/api/v1")
 
 @app.get("/")
 def root():
@@ -24,5 +28,6 @@ def check_db():
         return {"error": str(e)}
 
 
-app.include_router(outfit_router, prefix="/api/v1")
-app.include_router(rag_router, prefix="/api/v1")
+app.include_router(outfit_router, prefix="/api/v1/outfit")
+app.include_router(chat_router, prefix="/api/v1/chat")
+app.include_router(rag_router, prefix="/api/v1/rag")
