@@ -2,6 +2,7 @@
 "use client";
 
 const Cloud = ({
+  // 雲の動きや見た目を変えるためのパーツ
   speed,
   top,
   opacity,
@@ -12,14 +13,15 @@ const Cloud = ({
   opacity: number;
   size?: number;
 }) => (
-  <svg
+  <svg // 雲の形をSVGで描画
     className="absolute animate-cloud"
     style={{
+      // 位置や動きのスタイルを動的に設定
       top: `${top}%`,
       animationDuration: `${speed}s`,
       opacity: opacity,
     }}
-    width={size}
+    width={size} // サイズも動的に設定
     viewBox="0 0 100 60"
     fill="white"
     xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +32,7 @@ const Cloud = ({
     <rect x="25" y="35" width="45" height="15" />
   </svg>
 );
-
+// 雲を複数配置するコンポーネント
 export default function CloudBackground() {
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

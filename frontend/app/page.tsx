@@ -1,4 +1,4 @@
-// frontend/app/page.tsx
+// ログインページ
 "use client";
 
 import Image from "next/image"; //

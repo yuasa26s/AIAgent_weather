@@ -10,61 +10,61 @@
 // 位置情報も内部で取得。useChatが内部でuseGeoLocationを呼ぶ
 // UIはuseChat() だけ呼べば動く
 
-"use client"
-import { useState } from "react"
-import { ChatMessage } from "@/types"
-import { postOutfitRecommendation } from "@/lib/chat-api"
-import { useGeoLocation } from "@/hooks/useGeoLocation"
+"use client";
+import { useState } from "react";
+import { ChatMessage } from "@/types";
+import { postOutfitRecommendation } from "@/lib/chat-api";
+import { useGeoLocation } from "@/hooks/useGeoLocation";
 
 export const useChat = (sessionId: string) => {
-    const { latitude, longitude } = useGeoLocation() // 位置情報も内部で取得
+  const { latitude, longitude } = useGeoLocation(); // 位置情報も内部で取得
 
-    const [messages, setMessages] = useState<ChatMessage[]>([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-    const sendMessage = async (content: string) => {
-        if (!latitude || !longitude) {
-            setError("Location not available")
-            return
-        }
-    
-    const userMessage: ChatMessage = {
-        id: crypto.randomUUID(),
-        sessionId,
-        role: "user",
-        content,
-        createdAt: new Date().toISOString(),
+  const sendMessage = async (content: string) => {
+    if (!latitude || !longitude) {
+      setError("Location not available");
+      return;
     }
 
-    setMessages((prev) => [...prev, userMessage])
-    setLoading(true)
-    setError(null)
+    const userMessage: ChatMessage = {
+      id: crypto.randomUUID(),
+      sessionId,
+      role: "user",
+      content,
+      createdAt: new Date().toISOString(),
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setLoading(true);
+    setError(null);
 
     try {
-        const res = await postOutfitRecommendation({
-            sessionId,
-            latitude,
-            longitude,
-            message: content,
-        })
+      const res = await postOutfitRecommendation({
+        sessionId,
+        latitude,
+        longitude,
+        message: content,
+      });
 
-        setMessages((prev) => [...prev, res.reply])
+      setMessages((prev) => [...prev, res.outfit_recommendation]);
     } catch (err) {
-      console.error(err)
-      setError("Failed to send message")
+      console.error(err);
+      setError("Failed to send message");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return {
     messages,
     loading,
     error,
     sendMessage,
-  }
-}
+  };
+};
 
 // UI側での使い方
 // const { messages, sendMessage, loading } = useChat()
