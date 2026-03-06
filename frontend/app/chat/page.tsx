@@ -2,10 +2,10 @@
 "use client";
 
 import { useChat } from "@/hooks/useChat";
-import { useState } from "react";
+//import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ChatUI from "@/components/chat/ChatUI";
-import WeatherContainer from "@/components/weather/WeatherContainer";
+//import WeatherContainer from "@/components/weather/WeatherContainer";
 
 export default function ChatPage() {
   const searchParams = useSearchParams();
@@ -26,13 +26,13 @@ export default function ChatPage() {
   //   };
 
   return (
-  <div className="flex flex-col gap-6">
-    <ChatUI
-      messages={messages} // エンジンからもらったメッセージを渡す
-      onSendMessage={sendMessage} // エンジンの送信機能を渡す
-      loading={loading} // 通信中かどうかを渡す
-      error={error}
-    />
-  </div>
+    <div className="flex flex-col gap-6">
+      <ChatUI
+        messages={messages} // エンジンからもらったメッセージを渡す
+        onSendMessage={sendMessage} // エンジンの送信機能を渡す
+        loading={loading} // 通信中かどうかを渡す
+        error={error}
+      />
+    </div>
   );
 }

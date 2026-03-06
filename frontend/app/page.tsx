@@ -1,7 +1,7 @@
 // ログインページ
 "use client";
 
-import Image from "next/image"; //
+//import Image from "next/image";
 import CloudBackground from "../components/ui/CloudBackground";
 import LoginButton from "../components/ui/LoginButton";
 import Illustrations from "../components/ui/Illustrations";

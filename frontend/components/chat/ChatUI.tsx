@@ -1,6 +1,6 @@
 "use client";
 
-import { useChat } from "@/hooks/useChat";
+//import { useChat } from "@/hooks/useChat";
 // import WeatherCard from "../weather/WeatherCard";
 import MessageBubble from "./MessageBubble";
 import ChatInput from "./ChatInput";
