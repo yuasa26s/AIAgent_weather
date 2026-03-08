@@ -38,8 +38,9 @@ def get_clothing_advice(weather_data: dict):
             ],
             temperature=0.7
         )
-
-        return response.choices[0].message.content
+        # フロントエンドが期待しているキー名「outfit_recommendation」で包む
+        return {"outfit_recommendation": response.choices[0].message.content}
 
     except Exception as e:
-        return f"エラーが発生しました: {str(e)}"
+        #エラー時も同じキー名で返すことで、画面が真っ白になるのを防ぐ
+        return {"outfit_recommendation": f"AIアドバイスの生成に失敗しました: {str(e)}"}
