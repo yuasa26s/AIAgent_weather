@@ -47,9 +47,11 @@ class ContextBuilder:
             "与えられたコンテキストに根拠がある内容を優先し、断定できない場合は不確かだと述べてください。"
         )
 
+        context_text = "\n\n".join(parts) if parts else "(コンテキストなし)"
+
         user_context = (
             f"ユーザーの質問:\n{user_query}\n\n"
-            f"参考コンテキスト:\n{'\n\n'.join(parts) if parts else '(コンテキストなし)'}"
+            f"参考コンテキスト:\n{context_text}"
         )
 
         return BuiltContext(system_context=system_context, user_context=user_context)
