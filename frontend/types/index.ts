@@ -3,16 +3,16 @@ export type ChatRole = "user" | "assistant";
 export type ChatMessage = {
   id: string;
   sessionId: string;
-  role: ChatRole;
+  role: "user" | "assistant";
   content: string;
   createdAt: string;
 };
 
 export type OutfitRecommendationRequest = {
-  sessionId: string;
+  uuid: string;
   latitude: number;
   longitude: number;
-  message: string;
+  date: string;
 };
 
 export type OutfitRecommendationResponse = {

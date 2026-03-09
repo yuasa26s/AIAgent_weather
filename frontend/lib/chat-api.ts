@@ -7,7 +7,7 @@ import {
 } from "@/types";
 
 export const postOutfitRecommendation = (body: OutfitRecommendationRequest) => {
-  return apiClient<OutfitRecommendationResponse>("/outfit_recommendation", {
+  return apiClient<OutfitRecommendationResponse>("/api/v1/outfit/outfit-recommendation", {
     method: "POST",
     body: JSON.stringify(body),
   });

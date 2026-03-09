@@ -43,16 +43,24 @@ export const useChat = (sessionId: string) => {
 
     try {
       const res = await postOutfitRecommendation({
-        sessionId,
+        uuid: sessionId,
         latitude,
         longitude,
-        message: content,
+        date: new Date().toISOString().split("T")[0],
       });
 
-      setMessages((prev) => [...prev, res.outfit_recommendation]);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: crypto.randomUUID(),
+          sessionId,
+          role: "assistant",
+          content: String(res.outfit_recommendation),
+          createdAt: new Date().toISOString(),
+        },
+      ]);
     } catch (err) {
-      console.error(err);
-      setError("Failed to send message");
+      setError("Failed to fetch recommendation");
     } finally {
       setLoading(false);
     }
