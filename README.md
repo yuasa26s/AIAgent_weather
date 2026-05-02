@@ -83,7 +83,7 @@ GET /api/chats/{user_id}
 "created_at": "2026-02-23T10:00:00Z"}
 ]
 
-# これも余裕があれば
+これも余裕があれば
 
 GET /history
 
