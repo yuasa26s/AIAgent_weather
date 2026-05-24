@@ -1,38 +1,10 @@
-from app.core.database import get_connection
-
+# backend/app/services/memory.py
 
 def save_message(user_id: str, role: str, content: str):
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    query = """
-    INSERT INTO messages (user_id, role, content)
-    VALUES (%s, %s, %s)
-    """
-
-    cursor.execute(query, (user_id, role, content))
-    conn.commit()
-
-    cursor.close()
-    conn.close()
-
+    """DBがないため、保存せずにログ出力だけ行います"""
+    print(f"Memory Log: [{role}] {content}")
+    return
 
 def get_recent_messages(user_id: str):
-    conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
-
-    query = """
-    SELECT role, content, created_at
-    FROM messages
-    WHERE user_id = %s
-    ORDER BY created_at DESC
-    LIMIT 3
-    """
-
-    cursor.execute(query, (user_id,))
-    results = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return results
+    """履歴の代わりに空のリストを返します"""
+    return []

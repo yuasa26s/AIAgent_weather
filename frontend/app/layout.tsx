@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={`${mplus.variable} font-sans antialiased`}>
+      <body className={`${mplus.variable} font-sans antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>
