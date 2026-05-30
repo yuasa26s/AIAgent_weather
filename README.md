@@ -94,6 +94,12 @@ GET /history
 変数名,説明,設定例
 NEXT_PUBLIC_API_URL,バックエンド API のベース URL。末尾に / を入れないよう注意。,[http://127.0.0.1:8000](http://127.0.0.1:8000)
 
+#### コマンド（バックエンド）
+python -m uvicorn app.main:app --reload
+
+#### コマンド(フロントエンド)
+npm run dev
+
 ### バックエンド (backend/.env)
 変数名,説明,設定例
 OPENAI_API_KEY,OpenAI API を利用するための秘密鍵。,sk-proj-...
