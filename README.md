@@ -52,4 +52,3 @@ graph TD
     B -->|③ JSONデータ POST送信| D[FastAPI バックエンド]
     D -->|④ RAGプロンプト注入 + LLM生成| E[AIスタイリスト回答]
     E -->|⑤ 画面へレンダリング| B
->>>>>>> 0a73c11 (feat: お天気APIとGPSの完全自動連動化、ヘッダーナビゲーションの実装、およびREADME.mdの追加)
