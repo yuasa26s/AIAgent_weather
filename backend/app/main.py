@@ -43,6 +43,7 @@ app.include_router(chat_router, prefix="/api/v1")
 # 2. その他のエンドポイント
 app.include_router(outfit_router, prefix="/api/v1/outfit")
 app.include_router(rag_router, prefix="/api/v1")
+app.include_router(chat_router, prefix="/api/v1")
 
 @app.get("/")
 def root():
